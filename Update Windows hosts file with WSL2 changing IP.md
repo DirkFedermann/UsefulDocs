@@ -1,3 +1,5 @@
+# Update Windows hosts file with WSL2 changing IP
+
 The Problem with using WSL2 for local web development is, that the IP Address of the WSL2 Instance is changing with every Windows Boot. With having to rely on the Windows hosts file to get the ability to use local domains (for example test.local.dev) for your Webapp, this a problem.
 
 There are ways to get a WSL2 using a fixed IP Address, but as in time of writing, this is very complicated.
@@ -5,8 +7,11 @@ There are tutorials out there that are using the Hyper-V virtual switches or som
 
 This tutorial and script will simply get the current assigned IP Address from the defined WSL2 Instance and replaces the IP Address in the Windows hosts file, of your defined local development domain.
 
-First we need to save this Powershell Script in a convenient location (for example C:\Scripts):
 
+
+First we need to save this Powershell Script in a convenient location (for example *C:\Scripts*):
+
+```
 # C:\Scripts\update_wsl_ip_to_hosts.ps1
 
 $hostName = "local.dev" # replace with the host name or domain you want to update
@@ -25,12 +30,13 @@ $newLines = foreach ($line in $lines) {
 }
 
 Set-Content $hostsFile -Value $newLines
-
+```
 
 This script reads every line in the hosts file, looks if it has an IPv4, one or more spaces and then the under $hostname defined host name.
 If this is true, then it replaces the IPv4 in that line, with the new IP reported by the WSL2 Instance in $newIP.
 This includes all subdomains like test.local.dev .
 All lines that don't match the host name are left unchanged.
+
 
 Because the IP of the WSL2 Instance are only changed, when the Windows Machine is booted up, we can now use the Windows Task Scheduler to automatically execute this script on boot.
 
@@ -42,14 +48,14 @@ In the Trigger-Tab we add a new trigger and select that is starts at sign in for
 The rest of the settings can be left as they are by default.
 
 In the Actions-Tab we add a new action and select that it should start a program and type in the field for the program/script the path of the powershell.exe:
-
+```
 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-
+```
 
 and in the optional arguments we type this:
-
--ExecutionPolicy Bypass -File "C:\scripts\update_wsl_ip_to_domain.ps1"
-
+```
+-ExecutionPolicy Bypass -File "C:\scripts\update_wsl_ip_to_hosts.ps1"
+```
 
 where the last part is the path of the Powershell script we made above.
 Click on OK.
@@ -60,4 +66,3 @@ We can execute the task now manually by right-clicking the task in the task libr
 That will pop up a Powershell window that should close again after a few seconds.
 
 If we now look in our hosts file in Windows, the IP Address of the hostnames that have local.dev (or what ever you defined in the $hostname in the Powershell script, should have the new IP Address of the WSL2 Instance.
-
