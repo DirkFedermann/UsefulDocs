@@ -101,11 +101,12 @@ sudo a2enmod proxy_fcgi
 sudo service apache2 restart
 ```
 
-rewrite - This module is used to rewrite URLs and can be used to create search engine-friendly URLs, to redirect requests to new locations, or to modify incoming requests.
+
 
 <details>
   <summary>Short explanation on what the modules do, that we activate:</summary>
   
+  * **rewrite** - This module is used to rewrite URLs and can be used to create search engine-friendly URLs, to redirect requests to new locations, or to modify incoming requests.
 * **ssl** - This module provides SSL/TLS encryption for Apache2, allowing you to serve your website securely over HTTPS.
 * **vhost_alias** - This module allows to define a template for mapping incoming requests to a specific document root directory based on the requested hostname.
 * **headers** - This module lets you modify HTTP headers in the server's responses, which can be useful for setting security-related headers or custom headers for caching.
@@ -161,6 +162,14 @@ To change the PHP Version for the CLI you can use this command and then select t
 sudo update-alternatives --config php
 ```
 
+We also need now to enable the PHP FPM and enable the proxy_fcgi in Apache2 and restart Apache2 again.
+```
+sudo a2enmod proxy_fcgi setenvif
+sudo a2enconf php8.2-fpm
+sudo service apache2 restart
+```
+(change the `php8.2-fpm` to `php7.4-fpm` if you have installed that)
+
 
 ## Install MariaDB
 
@@ -183,7 +192,8 @@ It can happen, that a package update can break the database system by removing a
 
 From there you can just accept all other question by pressing `Y` and `Enter`.
 
-Setting up admin Account for MariaDB
+
+## Setting up admin Account for MariaDB
 
 For things like phpmyadmin we need an admin account with a password.
 For that we go into the mariadb console:
