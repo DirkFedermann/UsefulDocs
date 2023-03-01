@@ -22,23 +22,26 @@ After the restart, you can open up a simple command prompt or Powershell and typ
 wsl --install -d Ubuntu
 ```
 This will install the latest version of Ubuntu (as of time of writing 22.04).
-Depending on your internet connection it might take a while, after the download it automatically gets installed
+Depending on your internet connection it might take a while, after the download it automatically gets installed.
 
-Check if an Instance of WSL is running and in what version:
+A new window with a terminal will appear. That is a SSH connection to the Ubuntu Instance you just installed.
+There you have to input your username and the password twice.
+
+Check in the windows commandline (or Powershell) if an Instance of WSL is running and in what version:
 ```
 wsl -l -v
 ```
-if it is using WSL1 use this command to change it:
+if it is using Version 1 use this command to change it to Version 2:
 ```
 wsl --set-version Ubuntu 2
 ```
-WSL2 is vastly surpirior in the performance and feature-set compared to WSL1 - except if you use files across the OS.
+WSL2 is vastly surperior in the performance and feature-set compared to WSL1 - except if you use files across the OS.
 For more information, check the Microsoft Site here: https://learn.microsoft.com/en-us/windows/wsl/compare-versions
 
 ## Initial Prep Work
 
-Now that Ubuntu is installed and running, you will get prompted to input an username and password.
-Use a password you can remember easily, you will enter it frequently using the terminal.
+Now that Ubuntu is installed and running, you can access it by open the `Ubuntu` App that has been installed on your Windows machine.
+You can also SSH into it, but since the IP Address always changes it is better for now to use the Ubuntu App.
 
 Not all the packages that are being installed during the initial install is up-to-date, so we need to first update and upgrade everything:
 ```
