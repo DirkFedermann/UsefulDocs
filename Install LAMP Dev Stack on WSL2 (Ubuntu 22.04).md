@@ -10,8 +10,8 @@ If you want to dig deeper into the topic, I can highly recommend the official do
 ## Install WSL2 and latest Ubuntu
 WSL is not enabled by default on all Windows versions and installations.
 To enable it, we need to open up a Powershell with Administrative Rights.
-For that we press the Windows-Key on the keyboard and type in Powershell, right click on the result and select Open as Administrator.
-After that type in this line and press Enter:
+For that we press the Windows-Key on the keyboard and type in `Powershell`, right click on the result and select `Open as Administrator`.
+After that type in this line and press `Enter`:
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
@@ -130,7 +130,7 @@ sudo service apache2 restart
 Now we are tackling the P in LAMP. Yes I know the M is missing, but we need the P for the M.
 
 For that we need to first add the repository personal package archive of Ondrej's PHP and because we are using Apache2 also the PPA of Ondrej's Apache2 Package.
-After that a quick apt upgrade to load the new repositories:
+After that a quick `apt upgrade` to load the new repositories:
 ```
 sudo add-apt-repository ppa:ondrej/php
 sudo add-apt-repository ppa:ondrej/apache2
@@ -168,12 +168,12 @@ If you are on an older Ubuntu version, you might need to start MariaDB via this 
 ```
 sudo service mysql start
 ```
-You will be asked to enter the current root password. But since it is the first installation, there is none. So just press Enter.
-The next question is about switching to unix_socket authentication. But since the root user is out-of-box already set to that, we can answer that with n.
-Now you are gonna be asked, if you want to set a root password. Press N and then Enter so you don't set a root password.
+You will be asked to enter the current root password. But since it is the first installation, there is none. So just press `Enter`.
+The next question is about switching to unix_socket authentication. But since the root user is out-of-box already set to that, we can answer that with `n`.
+Now you are gonna be asked, if you want to set a root password. Press `N` and then `Enter` so you don't set a root password.
 It can happen, that a package update can break the database system by removing access to the admin account.
 
-From there you can just accept all other question by pressing Y and Enter .
+From there you can just accept all other question by pressing `Y` and `Enter`.
 
 Setting up admin Account for MariaDB
 
@@ -189,7 +189,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 exit
 ```
-Now we created an account with the name admin and the password admin.
+Now we created an account with the name `admin` and the password `admin`.
 Since this is only intended to be used in a local development environment it is more important to have a simple way, rather than a secure way.
 
 ## Install phpMyAdmin
@@ -201,12 +201,12 @@ To install phpMyAdmin you type in:
 sudo apt install phpmyadmin
 ```
 After installing it, you will see a Package configuration and getting ask to select the web server you have installed and should be reconfigured.
-Since we have Apache2 installed, we select apache2 and press the spacebar to get the asterisks in the brackets and then press Enter .
+Since we have Apache2 installed, we select `apache2` and press the spacebar to get the asterisks in the brackets and then press `Enter`.
 
-The next question you get ask, is if you want to configure database for phpmyadmin. Select <Yes> and press Enter.
+The next question you get ask, is if you want to configure database for phpmyadmin. Select `<Yes>` and press `Enter`.
 
 Now you get ask to type in a MySQL application password for phpMyAdmin.
-We type in admin for now, with a Tab select <Ok> and press Enter.
+We type in `admin` for now, with a `Tab` select `<Ok>` and press `Enter`.
 After confirming the password the again, the installation will get finished.
 
 Now you can access phpMyAdmin via this link: http://localhost/phpmyadmin
