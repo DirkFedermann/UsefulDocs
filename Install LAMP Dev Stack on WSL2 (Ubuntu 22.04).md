@@ -99,15 +99,20 @@ sudo service apache2 restart
 ```
 
 rewrite - This module is used to rewrite URLs and can be used to create search engine-friendly URLs, to redirect requests to new locations, or to modify incoming requests.
-ssl - This module provides SSL/TLS encryption for Apache2, allowing you to serve your website securely over HTTPS.
-vhost_alias - This module allows to define a template for mapping incoming requests to a specific document root directory based on the requested hostname.
-headers - This module lets you modify HTTP headers in the server's responses, which can be useful for setting security-related headers or custom headers for caching.
-cache - This module can cache content on the server side, allowing subsequent requests for the same content to be served more quickly.
-expires - This module lets you set expiration dates for certain types of files, which can help improve page load times for repeat visitors.
-actions - This module lets you define actions that can be taken on certain types of files, such as executing a CGI script when a particular file extension is requested.
-alias - This module lets you map URLs to specific directories or files on the server.
-proxy_fcgi - This module allows you to proxy requests from Apache2 to a FastCGI server, which can handle the request and return a response back to Apache. It is useful for web applications that are written in PHP or Python.
 
+<details>
+  <summary>Short explanation on what the modules do, that we activate:</summary>
+  
+* **ssl** - This module provides SSL/TLS encryption for Apache2, allowing you to serve your website securely over HTTPS.
+* **vhost_alias** - This module allows to define a template for mapping incoming requests to a specific document root directory based on the requested hostname.
+* **headers** - This module lets you modify HTTP headers in the server's responses, which can be useful for setting security-related headers or custom headers for caching.
+* **cache** - This module can cache content on the server side, allowing subsequent requests for the same content to be served more quickly.
+* **expires** - This module lets you set expiration dates for certain types of files, which can help improve page load times for repeat visitors.
+* **actions** - This module lets you define actions that can be taken on certain types of files, such as executing a CGI script when a particular file extension is requested.
+* **alias** - This module lets you map URLs to specific directories or files on the server.
+* **proxy_fcgi** - This module allows you to proxy requests from Apache2 to a FastCGI server, which can handle the request and return a response back to Apache. It is useful for web applications that are written in PHP or Python.
+</details>
+<br>
 We will set up virtual hosts with their own subdomain later.
 
 Now we want to adjust the Apache2 Settings for permissions to match the username, to prevent some weird permissions errors in the future:
