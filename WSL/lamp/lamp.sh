@@ -108,13 +108,11 @@ elif [[ $1 = "add" ]]; then
 	if [[ -n "$3" ]]; then
 		projectPhp=$(echo "$3" | grep -oE '[0-9]+\.[0-9]+')
 		# Check if defined PHP version is installed
-		for phpVersion in "${phpVersions[@]}"; do
-			if [[ "$phpVersion" != "$projectPhp" ]]; then
-				echo "Error: Defined PHP version is not installed"
-				printf "Installed PHP versions: %s" "${phpVersions[@]}"
-				exit 1
-			fi
-		done
+		if [[ ! "${phpVersions[*]} " =~ " ${projectPhp} " ]]; then
+			echo "Error: Defined PHP version is not installed"
+			printf "Installed PHP versions: %s" "${phpVersions[@]}"
+			exit 1
+		fi
 	fi
 
 	# Check if a Public folder is defined, if not use the project folder as documentroot
