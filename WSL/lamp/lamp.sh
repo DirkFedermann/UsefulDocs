@@ -59,7 +59,7 @@ if [[ $1 = "start" ]]; then
 	echo "	* Starting PHP Versions"
 	for phpVersion in "${phpVersions[@]}"; do
 		echo "		* Starting PHP$phpVersion-fpm"
-		sudo service "php$phpVersion-fpm start"
+		sudo service "php$phpVersion-fpm" start
 	done
 
 
@@ -72,7 +72,7 @@ elif [[ $1 = "stop" ]]; then
 	echo "	* Stopping PHP Versions"
 	for phpVersion in "${phpVersions[@]}"; do
 		echo "		* Stopping PHP$phpVersion-fpm"
-		sudo service "php$phpVersion-fpm stop"
+		sudo service "php$phpVersion-fpm" stop
 	done
 
 
@@ -85,7 +85,7 @@ elif [[ $1 = "restart" ]]; then
 	echo "	* Restarting PHP Versions"
 	for phpVersion in "${phpVersions[@]}"; do
 		echo "		* Restarting PHP$phpVersion-fpm"
-		sudo service "php$phpVersion-fpm restart"
+		sudo service "php$phpVersion-fpm" restart
 	done
 
 
