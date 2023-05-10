@@ -183,7 +183,7 @@ EOF
 
 	# Adding Project to Windows hosts file
 	echo ""
-	printf "Don't forget to add the following line in your Windows hosts file located here: C:\\Windows\\System32\\drivers\\etc"
+	echo "Don't forget to add the following line in your Windows hosts file located here: C:\\Windows\\System32\\drivers\\etc"
 	echo "$ipAddress	$projectName.$devDomain"
 
 # Remove project
@@ -207,7 +207,7 @@ elif [[ $1 = "remove" ]]; then
 		sudo rm "$certFileLocation/$projectName.$devDomain-key.pem"
 		echo "$projectName removed"
 		echo ""
-		printf "Don't forget to remove the following line in your Windows hosts file located here: C:\\Windows\\System32\\drivers\\etc"
+		echo "Don't forget to remove the following line in your Windows hosts file located here: C:\\Windows\\System32\\drivers\\etc"
 		echo "$ipAddress		$projectName.$devDomain"
 	else
 		echo "Error: Project does not exist"
