@@ -175,10 +175,10 @@ EOF
 #######################
 
 	# Generate SSL Certs
-	mkcert -cert-file "$certFileLocation/$projectName.$devDomain.pem" -key-file "$certFileLocation/$projectName.$devDomain-key.pem $projectName.$devDomain"
+	mkcert -cert-file "$certFileLocation"/"$projectName"."$devDomain".pem -key-file "$certFileLocation"/"$projectName"."$devDomain"-key.pem "$projectName"."$devDomain"
 
 	# Enable site and reload Apache2
-	sudo a2ensite "$projectName.$devDomain.conf"
+	sudo a2ensite "$projectName"."$devDomain".conf
 	sudo service apache2 reload
 
 	# Adding Project to Windows hosts file
