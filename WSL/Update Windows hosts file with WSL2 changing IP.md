@@ -15,11 +15,21 @@ First we need to save this Powershell Script in a convenient location (for examp
 # C:\Scripts\update_wsl_ip_to_hosts.ps1
 
 $hostName = "local.dev" # replace with the host name or domain you want to update
-$newIP = (wsl -d Ubuntu hostname -I).trim() # replace the distribution name with your development distribution
+$newIP = $null
+
+echo "Checking for IP Address of Ubuntu..."
+
+while ([string]::IsNullOrEmpty($newIP)) {
+    $newIP = (wsl -d Ubuntu hostname -I).Trim()
+    echo "IP Address found: $newIP"
+    if ([string]::IsNullOrEmpty($newIP)) {
+        echo "WSL is not up and running yet. Waiting for 30 seconds..."
+        Start-Sleep -Seconds 30
+    }
+}
 
 $hostsFile = "$env:SystemRoot\System32\drivers\etc\hosts"
 $lines = Get-Content $hostsFile
-
 
 $newLines = foreach ($line in $lines) {
     if ($line -match "^\s*\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+((\w+\.)*)$hostName\b") {
@@ -29,7 +39,9 @@ $newLines = foreach ($line in $lines) {
     }
 }
 
+echo "Write to hosts file..."
 Set-Content $hostsFile -Value $newLines
+echo "Finished. Good Bye."
 ```
 
 This script reads every line in the hosts file, looks if it has an IPv4, one or more spaces and then the under $hostname defined host name.
