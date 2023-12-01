@@ -65,8 +65,6 @@ if ! cmp -s "$OUTPUT_FILE" "$TEMP_OUTPUT_FILE"; then
 
   # Save the new output to the output file
   cp "$TEMP_OUTPUT_FILE" "$OUTPUT_FILE"
-else
-  echo "No DNS changes for $DOMAIN."
 fi
 
 # Clean up temporary file
