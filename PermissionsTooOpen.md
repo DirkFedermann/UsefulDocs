@@ -28,3 +28,7 @@ Now we can `Add` new permissions. We go to `Select a principal` and then type in
 After that click `OK`. The Basic permissions of `Read & execute` and `Read` need to be selected, with no other permissions. Click `OK` or `Apply` in the windows that pop up.
 
 Now the correct permissions should be applied to your key file and you should be able to log in via SSH.
+
+## Source
+
+The source of this is a Youtube Video from `The_Sudo`: <https://www.youtube.com/watch?v=mrUqITjUhL8>
