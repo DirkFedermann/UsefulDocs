@@ -32,6 +32,8 @@ We SSH to the Backup Server and `sudo nano /etc/postfix/main.cf` (or use vim if 
 
 Add or edit the parameter `relay_domains = <domain>` and `maximal_queue_lifetime = 10d`.
 
+Now you need to restart the postfix service, to apply the changes to the config: `sudo systemctl restart postfix`
+
 ## Adding a Backup Server to the DNS
 
 Now add the `A`-Record of the Backup Server to the DNS: 
