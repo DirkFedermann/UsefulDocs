@@ -18,6 +18,7 @@
     RewriteRule ^wp-info(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^wp-pano(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^wp-admin(?:/(.*))?$ /teapot.php [R=301,L]
+    RewriteRule ^wp-login.php(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^.*wp(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^wp-plain.php(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^.ssh(?:/(.*))?$ /teapot.php [R=301,L]
@@ -101,6 +102,7 @@
     RewriteRule ^phpmyadmin(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpmyAdmin(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpMyadmin(?:/(.*))?$ /teapot.php [R=301,L]
+    RewriteRule ^phpMyAdmin(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpmyadmin_(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpMyAdmin_(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpmy-admin(?:/(.*))?$ /teapot.php [R=301,L]
@@ -146,7 +148,7 @@
     RewriteRule ^phpmyadmin2022(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpMyAdmin-latest(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpMyAdmin-latest-english(?:/(.*))?$ /teapot.php [R=301,L]
-    RewriteRule ^phpmyAdmin-latest-all-languages(?:/(.*))?$ /teapot.php [R=301,L]
+    RewriteRule ^phpMyAdmin-latest-all-languages(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^phpmy(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^pma(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^PMA(?:/(.*))?$ /teapot.php [R=301,L]
@@ -163,5 +165,7 @@
     RewriteRule ^shopdb(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^ecp(?:/(.*))?$ /teapot.php [R=301,L]
     RewriteRule ^v2/_catalog(?:/(.*))?$ /teapot.php [R=301,L]
+    RewriteRule ^sites(?:/(.*))?$ /teapot.php [R=301,L]
+    RewriteRule ^inputs.php(?:/(.*))?$ /teapot.php [R=301,L]
     
 </IfModule>
