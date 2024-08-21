@@ -112,9 +112,9 @@ elif [[ $1 = "add" || $1 = "overwrite" ]]; then
 	if [[ -n "$3" ]]; then
 		projectPhp=$(echo "$3" | grep -oE '[0-9]+\.[0-9]+')
 		# Check if defined PHP version is installed
-		if [[ ! "${phpVersions[*]} " =~ " ${projectPhp} " ]]; then
+		if [[ ! " ${phpVersions[*]} " =~ " ${projectPhp} " ]]; then
 			echo "Error: Defined PHP version is not installed"
-			printf "Installed PHP versions: %s" "${phpVersions[@]}"
+			echo "Installed PHP versions: ${phpVersions[@]}"
 			exit 1
 		fi
 	fi
