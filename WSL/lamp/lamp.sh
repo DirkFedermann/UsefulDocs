@@ -95,6 +95,11 @@ elif [[ $1 = "restart" ]]; then
 
 # add a project
 elif [[ $1 = "add" || $1 = "overwrite" ]]; then
+        # Check if certFileLocation exists
+        if [[ ! -d "$certFileLocation" ]]; then
+                mkdir "$certFileLocation"
+        fi
+
 	# Check if a projectname is defined
 	if [[ -n "$2" ]]; then
 		projectName="$2"
