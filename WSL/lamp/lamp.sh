@@ -48,6 +48,13 @@ Available PHP Versions: ${phpVersions[@]}
 END
 )
 
+# Check if mkcert is installed
+if ! command -v mkcert 2>&1 >/dev/null
+then
+	echo "mkcert is not installed. lamp.sh needs mkcert to work"
+ 	exit 1
+fi
+
 # Check if script was called with sudo
 if [[ $EUID != 0 ]]; then
 	echo "Please run with sudo!"
